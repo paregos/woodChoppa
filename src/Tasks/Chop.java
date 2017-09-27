@@ -18,7 +18,6 @@ public class Chop extends Task{
     }
 
     @Override public boolean activate() {
-
         return (ctx.inventory.select().count()<28 && ctx.players.local().animation() == -1) &&
         !ctx.objects.select().id(treeIds).select().isEmpty();
     }

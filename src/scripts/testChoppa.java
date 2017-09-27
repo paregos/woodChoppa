@@ -3,6 +3,7 @@ package scripts;
 import Tasks.Chop;
 import Tasks.Drop;
 import Tasks.Task;
+import Tasks.Walk;
 import org.powerbot.script.PollingScript;
 import org.powerbot.script.Script;
 import org.powerbot.script.rt4.ClientContext;
@@ -24,7 +25,7 @@ public class testChoppa extends PollingScript<ClientContext> {
     @Override
     public void start() {
 
-        tasks.add(new Drop(ctx));
+        tasks.add(new Walk(ctx));
         tasks.add(new Chop(ctx));
 
     }
