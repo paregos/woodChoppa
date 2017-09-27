@@ -5,11 +5,11 @@ import org.powerbot.script.rt4.ClientContext;
 
 public class Walk extends Task {
 
-    public static final Tile[] pathToTree = {new Tile(3162, 3489, 0),
-            new Tile(3162, 3485, 0), new Tile(3162, 3481, 0),
-            new Tile(3163, 3477, 0), new Tile(3163, 3473, 0),
-            new Tile(3163, 3469, 0), new Tile(3162, 3465, 0),
-            new Tile(3159, 3461, 0), new Tile(3157, 3457, 0)};
+    public static final Tile[] pathToTree = {new Tile(3163, 3486, 0),
+            new Tile(3163, 3482, 0), new Tile(3163, 3478, 0),
+            new Tile(3163, 3474, 0), new Tile(3163, 3470, 0),
+            new Tile(3163, 3466, 0), new Tile(3163, 3462, 0),
+            new Tile(3159, 3462, 0), new Tile(3156, 3459, 0)};
 
     private final Walker walker = new Walker(ctx);
 
