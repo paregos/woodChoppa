@@ -11,24 +11,29 @@ import java.util.concurrent.Callable;
  */
 public class Chop extends Task{
 
-    private int[] treeIds = {1278};
+    private int[] treeId = {};
 
     public Chop(ClientContext ctx) {
         super(ctx);
     }
 
+    public Chop(ClientContext ctx, int[] treeIds) {
+        super(ctx);
+        treeId = treeIds;
+    }
+
     @Override public boolean activate() {
         return (ctx.inventory.select().count()<28 && ctx.players.local().animation() == -1) &&
-        !ctx.objects.select().id(treeIds).select().isEmpty();
+        !ctx.objects.select().id(treeId).select().isEmpty();
     }
 
     @Override public void execute() {
 
-        GameObject tree = ctx.objects.select().id(treeIds).nearest().poll();
+        GameObject tree = ctx.objects.select().id(treeId).nearest().poll();
 
+        System.out.println("Trying to chop");
         if(tree.inViewport()){
             tree.interact("Chop");
-
             Condition.wait(new Callable<Boolean>() {
                 @Override public Boolean call() throws Exception {
                     return ctx.players.local().animation() != -1;

@@ -11,10 +11,16 @@ import java.util.concurrent.Callable;
  */
 public class Drop extends Task{
 
-    private int[] logId = {1511};
+    private int[] treeLogId = {};
+
 
     public Drop(ClientContext ctx) {
         super(ctx);
+    }
+
+    public Drop(ClientContext ctx, int[] treeLogIds) {
+        super(ctx);
+        treeLogId = treeLogIds;
     }
 
     @Override public boolean activate() {
@@ -24,17 +30,17 @@ public class Drop extends Task{
     @Override public void execute() {
         System.out.println("Should be dropping");
 
-        for(Item i : ctx.inventory.select().id(logId)){
+        for(Item i : ctx.inventory.select().id(treeLogId)){
 
             if(ctx.controller.isStopping()){
                 break;
             }
 
-            final int logsInInventory = ctx.inventory.select().id(logId).count();
+            final int logsInInventory = ctx.inventory.select().id(treeLogId).count();
             i.interact("Drop", "Logs");
             Condition.wait(new Callable<Boolean>() {
                 @Override public Boolean call() throws Exception {
-                    return ctx.inventory.select().id(logId).count()<logsInInventory;
+                    return ctx.inventory.select().id(treeLogId).count()<logsInInventory;
                 }
             }, 25, 20);
 
