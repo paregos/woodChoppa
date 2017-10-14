@@ -88,16 +88,23 @@ public class ScriptConstants {
             new Tile(3174, 3491, 0), new Tile(3171, 3488, 0)};
 
 
+    public static final Tile[] oakWestVarrockBank = {new Tile(3168, 3416, 0),
+            new Tile(3170, 3419, 0), new Tile(3170, 3422, 0),
+            new Tile(3172, 3425, 0), new Tile(3176, 3427, 0),
+            new Tile(3179, 3430, 0), new Tile(3182, 3433, 0),
+            new Tile(3183, 3436, 0)};
+
+
     //TREE IDS
     public static int[] treeIds = {1276, 1278};
     public static int[] oakIds = {1751};
-    public static int[] willowIds = {1756, 1760, 1758};
+    public static int[] willowIds = {1756, 1760, 1758, 1750};
     public static int[] yewIds = {1753};
 
     //LOG ITEM IDS
-    public static int[] treeItemId = {1511};
-    public static int[] oakItemId = {1521};
-    public static int[] willowItemId = {1519};
-    public static int[] yewItemId = {1515};
+    public static int treeItemId = 1511;
+    public static int oakItemId = 1521;
+    public static int willowItemId = 1519;
+    public static int yewItemId = 1515;
 
 }

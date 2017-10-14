@@ -1,7 +1,8 @@
-package Tasks;
+package tasks;
 
 import org.powerbot.script.Condition;
 import org.powerbot.script.rt4.ClientContext;
+import scripts.WoodChoppa;
 
 import java.util.concurrent.Callable;
 
@@ -9,6 +10,7 @@ import java.util.concurrent.Callable;
  * Created by Ben on 9/27/2017.
  */
 public class Bank extends Task {
+
 
     public Bank(ClientContext ctx) {
         super(ctx);
@@ -19,8 +21,10 @@ public class Bank extends Task {
     }
 
     @Override public void execute() {
+
+        WoodChoppa.setTask("Banking");
         if(ctx.bank.opened()){
-            if(ctx.bank.depositInventory()){
+            if(ctx.bank.depositAllExcept("axe")){
                 Condition.wait(new Callable<Boolean>() {
                     @Override public Boolean call() throws Exception {
                         return ctx.inventory.select().count() != 28;

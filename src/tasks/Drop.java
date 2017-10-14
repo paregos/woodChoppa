@@ -1,8 +1,9 @@
-package Tasks;
+package tasks;
 
 import org.powerbot.script.Condition;
 import org.powerbot.script.rt4.ClientContext;
 import org.powerbot.script.rt4.Item;
+import scripts.WoodChoppa;
 
 import java.util.concurrent.Callable;
 
@@ -11,14 +12,14 @@ import java.util.concurrent.Callable;
  */
 public class Drop extends Task{
 
-    private int[] treeLogId = {};
+    private int treeLogId = 0;
 
 
     public Drop(ClientContext ctx) {
         super(ctx);
     }
 
-    public Drop(ClientContext ctx, int[] treeLogIds) {
+    public Drop(ClientContext ctx, int treeLogIds) {
         super(ctx);
         treeLogId = treeLogIds;
     }
@@ -28,6 +29,7 @@ public class Drop extends Task{
     }
 
     @Override public void execute() {
+        WoodChoppa.setTask("Dropping");
         System.out.println("Should be dropping");
 
         for(Item i : ctx.inventory.select().id(treeLogId)){

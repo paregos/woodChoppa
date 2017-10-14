@@ -1,4 +1,4 @@
-package Tasks;
+package tasks;
 
 import org.powerbot.script.Condition;
 import org.powerbot.script.Random;
@@ -49,7 +49,7 @@ public class Walker {
     }
 
     /**
-     * Will detect which obstacle to tackle to give Tasks.Walker the ability to
+     * Will detect which obstacle to tackle to give tasks.Walker the ability to
      * traverse to the next tile.     *
      *
      * @param t The tile path being traversed.

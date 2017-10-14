@@ -1,8 +1,9 @@
-package Tasks;
+package tasks;
 
 import org.powerbot.script.Condition;
 import org.powerbot.script.rt4.ClientContext;
 import org.powerbot.script.rt4.GameObject;
+import scripts.WoodChoppa;
 
 import java.util.concurrent.Callable;
 
@@ -31,6 +32,7 @@ public class Chop extends Task{
 
         GameObject tree = ctx.objects.select().id(treeId).nearest().poll();
 
+        WoodChoppa.setTask("Chopping trees");
         System.out.println("Trying to chop");
         if(tree.inViewport()){
             tree.interact("Chop");
